@@ -1,0 +1,45 @@
+//**********************************
+//.cpp
+//Levi McCann
+//Celsius temperature conversion table
+//CIS61 Hendrickson
+//03/17/2020
+//************************************
+
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+
+//prototype function
+float celsius(float f);
+
+int main() 
+{
+ //declare and initialize vars
+ float c = 0.0f;
+ 
+ 
+ cout<<"I will not display temperatures for 0 to 20 degrees farenheit: " <<endl;
+ //get 0 to 20 temperatures
+
+ for (int f =0; f < 21; f ++) //o.o c at 32 f
+ {
+   c = celsius(f);
+  // cout<<setprecision(2) <<fixed ;
+   cout<<f << " degrees Farenheit equals: " <<setprecision(2) <<fixed<<c <<" degress Celsius.\n";
+ }
+ 
+ return 0;
+ // std::cout << "Hello World!\n";
+}
+
+//function converts celsius to farhenheit
+float celsius(float f)
+{
+  float c = 0.0f;
+  c = (5.0/9.0) * (f-32);
+
+  //return celsius
+  return c;  // result of above formula
+}

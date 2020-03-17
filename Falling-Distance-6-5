@@ -1,0 +1,44 @@
+//***************************************
+//.cpp
+//Levi McCann
+//Falling Distance 6-5
+//CIS 61 Hendrickson
+//03/17/2020
+//***************************************
+
+
+#include <iomanip>
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+//prototype for function
+double fallingDistance(int t = 0);
+int main()
+ {
+   //initiialize variables
+   int t = 0; //time variable
+   double d = 0; //Distance
+   
+   //display to screen what program is going to do
+  cout<<"I will now calculate the distance an object falls in 10 seconds:\n ";
+
+//for with 10 iteration
+for (int i =1; i<=10;i++)
+{
+  d = fallingDistance(i); //i is seconds for t
+  cout<<i <<" seconds: " <<d <<" meters.\n " ;
+}
+
+
+  return 0;
+//  std::cout << "Hello World!\n";
+}
+//here is the function
+double fallingDistance(int t)
+{
+  double d = 0;
+  const double g = 9.8; //const for gravity does not change
+  d = (0.5 * g) *(pow(t,2)); //falling calculation
+  return d; 
+}

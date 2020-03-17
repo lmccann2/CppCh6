@@ -1,0 +1,49 @@
+//************************************
+//.cpp
+//Levi McCann
+//Markup (6-10)
+//03/17/2020
+//Hendrickson CIS61
+//************************************
+
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+double calculateRetail(double, double);
+int main()
+ {
+  //initialize variables 
+  double wholesaleCost = 0;
+  double percentage = 0;
+  double totalPrice =0;
+  //Have user enter a wholesaleCost and percentage markup
+      cout<<"Please enter a non-negative number for the Wholesale cost: ";
+      cin>> wholesaleCost;
+      cout<<"Please enter the percent markup (e.g. 50.0): ";
+      cin>>percentage ;
+
+  //use while
+  while (wholesaleCost < 0 || percentage <0)
+  {
+      cout<<"Please enter a non-negative number for the Wholesale cost: ";
+      cin>> wholesaleCost;
+      cout<<"Please enter the percent markup (e.g. 15.0): ";
+      cin>>percentage ;
+  }
+
+  totalPrice = calculateRetail( wholesaleCost, percentage);
+  //output result
+  cout<<setprecision(2) <<fixed;
+  cout<<"The total cost is: $" <<totalPrice <<endl;
+  
+ return 0; 
+ // std::cout << "Hello World!\n";
+}
+
+double calculateRetail(double wholesaleCost, double percentage)
+{
+  double totalCost = 0;
+  totalCost = ((wholesaleCost / 100) * percentage) + wholesaleCost;
+  return totalCost;
+}

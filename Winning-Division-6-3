@@ -1,0 +1,92 @@
+//**************************************
+//.cpp
+//Levi McCann
+//CIS61 Hendrickson
+//WInning Division 6-3
+//03/21/2020
+//**************************************
+
+#include <iomanip>
+#include <string>
+#include <iostream>
+using namespace std;
+
+const string NE ="North East";
+const string SE ="South East";
+const string NW ="North West";
+const string SW ="South West";
+
+//prototypes of functions
+double getSales(string);
+double inputValidate(double);
+void findHighest(double, double, double, double);
+void checkifHighest(double, double, double, double, string);
+
+//main function
+int main() {
+  double NE_sales,
+         NW_sales,
+         SE_sales,
+         SW_sales;
+  NE_sales = getSales(NE);
+  NW_sales =getSales(NW);
+  SE_sales = getSales(SE);
+  SW_sales = getSales(SW);
+
+  findHighest(NE_sales, NW_sales, SE_sales, SW_sales);
+  
+  
+  
+  
+  return 0;
+  //std::cout << "Hello World!\n";
+}
+
+double inputValidate(double num)
+{
+  while (!(cin>> num) || num < 0)
+  {
+    cout <<"Error an ineger above 0 must be entered. ";
+    cin.clear();
+    cin.ignore(1220, '\n');
+  }
+  return num;
+}
+
+double getSales(string division)
+{
+  double sales;
+  //get user quarterly
+  cout<<"What is the quarterly sales figure \n" 
+  <<" for " <<division <<" ? $";
+  sales = inputValidate(sales);
+  cout<<endl;
+  return sales;
+}
+
+//findHighest
+void findHighest(double NE_sales, double NW_sales, double SE_sales, double SW_sales)
+{
+  cout <<"The highest grossing division is\n ";
+  checkifHighest(NE_sales, NW_sales, SE_sales, SW_sales, NE);
+  checkifHighest(NW_sales, NE_sales, SE_sales, SW_sales, NW);
+  checkifHighest(SE_sales, NE_sales, NW_sales, SW_sales, SE);
+  checkifHighest(SW_sales, NE_sales,NW_sales, SE_sales, SW);
+  cout <<endl <<endl;
+}
+
+//check if highest
+void checkifHighest(double sales1, double sales2, double sales3, double sales4, string division)
+
+{
+  if (sales1 > sales2)
+  {
+    if (sales1 > sales3)
+    {
+      if (sales1 > sales4)
+      {
+        cout <<division <<" with a sales figure at: $" <<sales1 <<endl;
+      }
+    }
+  }
+}

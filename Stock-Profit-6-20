@@ -1,0 +1,53 @@
+//*****************************************
+//.cpp
+//Levi McCann
+//Stock Profits 6-20
+//CIS61 Hendrickson
+//03/21/2020
+//******************************************
+
+
+
+#include <iostream>
+#include <iomanip>
+#include <string>
+using namespace std;
+
+//protype the function
+double saleofStock(double numberofShares, double salePrice, double saleComission, double purchasePrice, double purchaseComission);
+
+int main() {
+  double numberofShares, salePrice;
+  double saleComission, purchasePrice;
+  double purchaseComission;
+  double profit;
+  cout<<"Please enter the number of shares to purchase: (100.4)"<<endl;
+  cin>>numberofShares ;
+  cout<<"What was the sale price per share? "<<endl;
+  cin>> salePrice ;
+  cout<<"What was the sale comission? " <<endl;
+  cin>>saleComission ;
+  cout <<"What was the purchase price per share? " <<endl;
+  cin>>purchasePrice ;
+  cout<<"What was the purchase comission paid? "<<endl;
+  cin>>purchaseComission ;
+  
+   profit = saleofStock(numberofShares, salePrice, saleComission, purchasePrice, purchaseComission); 
+   cout<<"The profit on the sale of stock is: $" 
+   <<profit <<endl;
+  
+  
+  return 0;
+  //std::cout << "Hello World!\n";
+}
+
+//create function for calculation
+double saleofStock(double numberofShares, double salePrice, double saleComission, double purchasePrice, double purchaseComission)
+{
+  //double numberofShares, salePrice;
+  //double saleComission, purchasePrice;
+  //double purchaseComission;
+  double profit;
+  profit =((numberofShares * salePrice)-saleComission) - ((numberofShares* purchasePrice) +purchaseComission);
+  return profit;
+}

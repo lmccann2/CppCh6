@@ -1,0 +1,90 @@
+//**************************************
+//Levi McCann
+//Shipping Charges 6-6
+//CIS 61 Hendrickson
+//03/21/2020
+//**************************************
+
+
+#include <iomanip>
+#include <string>
+#include <iostream>
+using namespace std;
+
+//declare constants
+const int MIN = 2,
+          WEIGHT_MAX = 20,
+          DISTANCE_MIN = 10,
+          DISTANCE_MAX = 3000;
+//prototype function  
+float calculateCharge(float shipping,
+                       float weight,
+                       float total_charge);
+
+
+int main()
+ {
+  float shipping; //declare variables
+  float weight;
+  float total_charge;
+  
+  //here is the loop according to program specs to exit after 0 is entered by user
+  while ((weight != 0 || weight <1))
+  {
+  //checks if 0 was entered
+  if (weight <= 0)
+    return 0;
+  else
+  //add line break
+  cout<<endl;
+  
+  cout<< "Please enter the weight of the package in Kg: (enter 0 to exit): ";
+  cin>>weight ;
+  cout<<"Please enter how many miles the \n package is to be shipped: ";
+  cin>> shipping;
+
+
+
+  //send inputed info to function below and calculates the result and returns it here
+  total_charge = calculateCharge(shipping, weight, total_charge);
+  cout<<"The total charge is: $" ;
+  cout<<setprecision(2) <<fixed << total_charge;
+  // clears out input buffer
+  cin.clear();
+  cin.ignore(1220, '\n');
+  }
+  
+ return 0;
+}
+
+//function for calulating total shipping charges
+float calculateCharge(float shipping,
+                       float weight,
+                       float total_charge)
+ {
+
+   if (weight <= MIN || weight > WEIGHT_MAX)
+   {
+     cout<<"Sorry Package weight must be greater than 0 kg and less than 20 kg." <<endl;
+   }
+   else
+   {
+     cout<<"What is the shipping distance in miles? " <<endl;
+     cin>> shipping ;
+     if (weight <= 2)
+     
+       total_charge = (shipping / 500) * 3.10;
+      
+     else if (weight > 2 && weight < 6)
+
+        total_charge = (shipping / 500) * 4.20;
+      
+      else if (weight > 6 && weight <= 10)
+        total_charge = (shipping / 500) * 5.30;
+      
+      else if (weight > 10 && weight <= 20)
+        total_charge = (shipping / 500) * 6.40;
+      
+   }
+    return total_charge;  
+ } 
